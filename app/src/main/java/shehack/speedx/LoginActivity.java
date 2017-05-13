@@ -101,8 +101,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 SessionDetails.instance().setCustEmail(mEmailView.getText().toString());
                 SessionDetails.instance().setCustPassword(mPasswordView.getText().toString());
                 //              SessionDetails.instance().writeToFile();
-//                Intent nextScreen = new Intent(LoginActivity.this, ServiceSelection.class);
-//                startActivity(nextScreen);
+                Intent nextScreen = new Intent(LoginActivity.this, ServiceSelection.class);
+                startActivity(nextScreen);
             }
         });
 
