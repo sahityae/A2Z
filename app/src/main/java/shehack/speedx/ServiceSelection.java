@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import shehack.speedx.function.SessionDetails;
+
 public class ServiceSelection extends AppCompatActivity {
 
     @Override
@@ -17,6 +19,7 @@ public class ServiceSelection extends AppCompatActivity {
         outstation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent nextScreen = new Intent(ServiceSelection.this, MapsActivity.class);
                 startActivity(nextScreen);
             }

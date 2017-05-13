@@ -63,8 +63,8 @@ public class BookingConfirmation extends AppCompatActivity implements View.OnCli
             public void onClick(View view) {
                 //               SessionDetails.instance().chooseDrivers();
 //                SessionDetails.instance().writeToFile();
-//                Intent nextScreen = new Intent(BookingConfirmation.this, RouteItenary.class);
-//                startActivity(nextScreen);
+                Intent nextScreen = new Intent(BookingConfirmation.this, RouteItenary1.class);
+                startActivity(nextScreen);
             }
         });
 

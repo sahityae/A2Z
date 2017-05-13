@@ -13,9 +13,7 @@ import shehack.speedx.function.database.Driver;
 import shehack.speedx.function.database.Variables;
 
 
-/**
- * Created by Sahitya on 3/2/2017.
- */
+
 public class SessionDetails {
     private static SessionDetails self;
 
@@ -28,6 +26,8 @@ public class SessionDetails {
     private List<List<HashMap<String, String>>> requestedRoute = new ArrayList<>();
     private double lastLat;
     private double lastLng;
+
+
     List<String> drivers = new ArrayList<>();
     List<LatLng> changePoints = new ArrayList<>();
     float totalDist;
@@ -45,6 +45,7 @@ public class SessionDetails {
         }
         return self;
     }
+
 
     public void calcRideDist()
     {
@@ -204,4 +205,6 @@ public class SessionDetails {
     public void setTotalDist(float totalDist) {
         this.totalDist = totalDist;
     }
+
+
 }

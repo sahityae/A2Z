@@ -7,7 +7,7 @@ import shehack.speedx.function.database.manual.createDriverList;
 
 
 public class Variables {
-    private static Variables self;
+    private static Variables self1;
     private HashMap<String, Customer> customerList;
 
     //Create local database for drivers
@@ -23,10 +23,10 @@ public class Variables {
 
     //Creating a singleton class to act like a database
     public static Variables instance() {
-        if (null == self) {
-            self = new Variables();
+        if (null == self1) {
+            self1 = new Variables();
         }
-        return self;
+        return self1;
     }
 
     public HashMap<String, Customer> getCustomerList() {

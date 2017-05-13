@@ -17,4 +17,6 @@
     <string name="title_activity_select_service">What are you looking for?</string>
     <string name="register"><u>New Users Register Here</u></string>
     <string name="forgot"><u>Forgot Password</u></string>
+    <string name="notifications">Send Notifications</string>
+    <string name="itenary">Itenary</string>
 </resources>

@@ -13,6 +13,7 @@ import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
@@ -182,6 +183,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             if(MarkerPoints.size()==2)
             {
+
                 drawRoute();
             }
 
@@ -215,6 +217,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             if(MarkerPoints.size()==2)
             {
+
                 drawRoute();
             }
 
@@ -239,6 +242,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Start downloading json data from Google Directions API
         FetchUrl.execute(url);
+
+
         //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(origin));
         //  mMap.animateCamera(CameraUpdateFactory.zoomTo(11));

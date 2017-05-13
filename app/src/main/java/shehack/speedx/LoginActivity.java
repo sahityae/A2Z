@@ -103,6 +103,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 //              SessionDetails.instance().writeToFile();
                 Intent nextScreen = new Intent(LoginActivity.this, ServiceSelection.class);
                 startActivity(nextScreen);
+                finish();
             }
         });
 
