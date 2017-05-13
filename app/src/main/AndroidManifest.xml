@@ -23,10 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ServiceSelection"
-            android:label="@string/title_activity_select_service"></activity>
+            android:label="@string/title_activity_select_service" />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -42,7 +41,8 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".BookingConfirmation"></activity>
     </application>
 
 </manifest>

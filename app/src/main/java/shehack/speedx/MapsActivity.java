@@ -79,7 +79,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
         }
         // Initializing
@@ -102,8 +102,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         proceed.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent nextScreen = new Intent(MapsActivity.this, BookingConfirmation1.class);
-//                startActivity(nextScreen);
+                Intent nextScreen = new Intent(MapsActivity.this, BookingConfirmation.class);
+                startActivity(nextScreen);
             }
         });
     }
@@ -258,7 +258,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         //Initialize Google Play Services
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
