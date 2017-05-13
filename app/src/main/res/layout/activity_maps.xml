@@ -1,0 +1,113 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="shehack.speedx.MapsActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/pickup"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_weight="4"
+            android:hint="From"
+            android:textSize="10sp" />
+
+
+        <Button
+            android:id="@+id/search_button1"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.5"
+            android:onClick="onSearchPick"
+            android:text="Search"
+            android:textSize="10sp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/destination"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_weight="4"
+            android:hint="To"
+            android:textSize="10sp" />
+
+
+        <Button
+            android:id="@+id/search_button2"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.5"
+            android:onClick="onSearchDest"
+            android:text="Search"
+            android:textSize="10sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtDatenTime"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:textSize="10sp"
+            android:text=" Set Date &amp; Time"/>
+
+        <Button
+            android:id="@+id/setDate"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.5"
+            android:onClick="setDate"
+            android:text="Date"
+            android:textSize="10sp"/>
+
+        <Button
+            android:id="@+id/setTime"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.5"
+            android:onClick="Set Time"
+            android:text="Time"
+            android:textSize="10sp"/>
+
+        <Button
+            android:id="@+id/proceed"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.5"
+            android:onClick="nextScreen"
+            android:text="->"
+            android:textSize="10sp"/>
+
+    </LinearLayout>
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="daimler.chauffeur_v2.MapsActivity" />
+
+
+
+
+    </LinearLayout>
