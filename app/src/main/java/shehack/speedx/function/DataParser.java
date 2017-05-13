@@ -51,6 +51,7 @@ public class DataParser {
                 }
 
                 SessionDetails.instance().setRequestedRoute(routes);
+                SessionDetails.instance().calcRideDist();
          //       SessionDetails.instance().writeToFile();
             }
 

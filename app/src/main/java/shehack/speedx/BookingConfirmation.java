@@ -24,6 +24,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import shehack.speedx.function.Constants;
+import shehack.speedx.function.SessionDetails;
+
 public class BookingConfirmation extends AppCompatActivity implements View.OnClickListener {
 
     private Button browse1, browse2, browse3;
@@ -68,10 +71,13 @@ public class BookingConfirmation extends AppCompatActivity implements View.OnCli
     }
 
     private void addBookingDetails() {
+        int distance = (int) SessionDetails.instance().getTotalDist();
+        int time = (int) distance/Constants.distPerHr;
+        int cost = (int) (Constants.fixedCost + Constants.costPerKm*distance);
         TextView shipmentDetails = (TextView) findViewById(R.id.shipmentDetails);
         TextView fareDetails = (TextView) findViewById(R.id.fareDetails);
-        shipmentDetails.setText("SHIPMENT DETAILS" + System.getProperty("line.separator")+"42 Hr | 2170 Km");
-        fareDetails.setText("  ESTIMATED FARE" + System.getProperty("line.separator")+"  Rs. 29,755/-");
+        shipmentDetails.setText("SHIPMENT DETAILS" + System.getProperty("line.separator")+ time +" Hr | " + distance + " Km");
+        fareDetails.setText("  ESTIMATED FARE" + System.getProperty("line.separator")+"  Rs. " + cost + "/-");
     }
 
     private void addItemsToVehicles() {

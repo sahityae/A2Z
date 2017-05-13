@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backg">
+    android:background="@drawable/bgselectionscreen">
 
 
     <Button
@@ -15,9 +15,10 @@
         android:background="#F16462"
         android:layout_width="160dp"
         android:layout_height="35dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="220dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="100dp" />
+        android:layout_marginEnd="100dp"
+        android:textColor="#000000"/>
 
     <Button
 
@@ -31,5 +32,6 @@
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
         android:layout_below="@+id/outstation"
-        android:layout_alignStart="@+id/outstation" />
+        android:layout_alignStart="@+id/outstation"
+        android:textColor="#000000"/>
 </RelativeLayout>

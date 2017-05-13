@@ -8,6 +8,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/bglogin"
         tools:context="shehack.speedx.LoginActivity">
         <!--   android:background="#53bbb4" -->
 
@@ -21,7 +22,7 @@
             android:layout_marginBottom="8dp"
             android:visibility="gone" />
 
-        <ScrollView
+        <LinearLayout
             android:id="@+id/login_form"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -43,6 +44,7 @@
                         android:hint="@string/prompt_email"
                         android:inputType="textEmailAddress"
                         android:maxLines="1"
+                        android:textColor="#000000"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -61,6 +63,7 @@
                         android:imeOptions="actionUnspecified"
                         android:inputType="textPassword"
                         android:maxLines="1"
+                        android:textColor="#000000"
                         android:singleLine="true" />
 
                 </android.support.design.widget.TextInputLayout>
@@ -72,8 +75,32 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/action_sign_in"
+                    android:textColor="#000000"
                     android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/register"
+                    android:onClick="register"
+                    android:clickable="true"
+                    />
+
+                <TextView
+                    android:id="@+id/forgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/forgot"
+                    android:onClick="forgotPassword"
+                    android:clickable="true"
+                    />
 
             </LinearLayout>
-        </ScrollView>
+
+
+        </LinearLayout>
     </LinearLayout>

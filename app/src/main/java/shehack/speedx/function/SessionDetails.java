@@ -30,8 +30,7 @@ public class SessionDetails {
     private double lastLng;
     List<String> drivers = new ArrayList<>();
     List<LatLng> changePoints = new ArrayList<>();
-
-    String content = "hello";
+    float totalDist;
 
 
     public SessionDetails()
@@ -47,46 +46,15 @@ public class SessionDetails {
         return self;
     }
 
-   /* public void writeToFile()
+    public void calcRideDist()
     {
-        BufferedWriter bw = null;
-        FileWriter fw = null;
 
-        try {
-
-
-            String FILENAME = "E:\\Daimler\\filename.txt";
-
-            fw = new FileWriter(FILENAME);
-            bw = new BufferedWriter(fw);
-            bw.write(content);
-
-            System.out.println("Done");
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-
-        } finally {
-
-            try {
-
-                if (bw != null)
-                    bw.close();
-
-                if (fw != null)
-                    fw.close();
-
-            } catch (IOException ex) {
-
-                ex.printStackTrace();
-
-            }
-
-        }
-
+        float[] distance = new float[1];
+        Location.distanceBetween(latitude, longitude,
+                destLatitude, destLongitude,
+                distance);
+        totalDist = (distance[0])/1000;
     }
-*/
 
     public void chooseDrivers()
     {
@@ -226,5 +194,14 @@ public class SessionDetails {
 
     public void setChangePoints(List<LatLng> changePoints) {
         this.changePoints = changePoints;
+    }
+
+
+    public float getTotalDist() {
+        return totalDist;
+    }
+
+    public void setTotalDist(float totalDist) {
+        this.totalDist = totalDist;
     }
 }
