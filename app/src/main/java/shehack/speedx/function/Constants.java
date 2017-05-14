@@ -1,5 +1,7 @@
 package shehack.speedx.function;
 
+import java.util.HashMap;
+
 /**
  * Created by Sahitya on 3/2/2017.
  */
@@ -9,7 +11,6 @@ public class Constants {
     public static int fixedCost = 5000;
     public static String from ="";
     public static String to ="";
-
 
 
 }

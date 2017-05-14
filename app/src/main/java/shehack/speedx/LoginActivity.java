@@ -30,11 +30,15 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
+import shehack.speedx.function.Constants;
 import shehack.speedx.function.SessionDetails;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -98,12 +102,35 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 mProgressView = findViewById(R.id.login_progress);
 
 */
-                SessionDetails.instance().setCustEmail(mEmailView.getText().toString());
-                SessionDetails.instance().setCustPassword(mPasswordView.getText().toString());
-                //              SessionDetails.instance().writeToFile();
+               String id = mEmailView.getText().toString();
+               String paswrd = mPasswordView.getText().toString();
+//               HashMap<String, String> registeredUsers = Constants.getPasswords();
+//                for(Map.Entry user: registeredUsers.entrySet())
+//                {
+//                    if(user.equals(id))
+//                    {
+//                        if(paswrd.equals(registeredUsers.get(user)))
+//                        {
+//                            SessionDetails.instance().setCustEmail(mEmailView.getText().toString());
+//                            SessionDetails.instance().setCustPassword(mPasswordView.getText().toString());
+//                            //              SessionDetails.instance().writeToFile();
+//                            Intent nextScreen = new Intent(LoginActivity.this, ServiceSelection.class);
+//                            startActivity(nextScreen);
+//                            finish();
+//                        }
+//                        else
+//                        {
+//                            Toast.makeText(LoginActivity.this, "Wrong username or password!!", Toast.LENGTH_LONG).show();
+//                        }
+//                    }
+//                    else
+//                    {
+//                        Toast.makeText(LoginActivity.this, "Wrong username or password!!", Toast.LENGTH_LONG).show();
+//                    }
+//                }
                 Intent nextScreen = new Intent(LoginActivity.this, ServiceSelection.class);
                 startActivity(nextScreen);
-                finish();
+
             }
         });
 

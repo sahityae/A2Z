@@ -43,9 +43,6 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".BookingConfirmation" />
-        <activity
-            android:name=".RouteItenary"
-            android:label="@string/itenary" />
         <activity android:name=".RouteItenary1"></activity>
     </application>
 

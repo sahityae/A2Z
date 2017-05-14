@@ -53,6 +53,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import shehack.speedx.function.Constants;
 import shehack.speedx.function.DataParser;
@@ -104,6 +105,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         proceed.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent nextScreen = new Intent(MapsActivity.this, BookingConfirmation.class);
                 startActivity(nextScreen);
             }
@@ -557,7 +559,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        //mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(3));
 
         //stop location updates
         if (mGoogleApiClient != null) {
