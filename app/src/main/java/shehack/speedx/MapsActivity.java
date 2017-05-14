@@ -54,6 +54,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
+import shehack.speedx.function.Constants;
 import shehack.speedx.function.DataParser;
 import shehack.speedx.function.SessionDetails;
 
@@ -160,6 +161,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     {
 
         String location = pickup.getText().toString();
+        Constants.from = location;
         List<Address> addressList = null;
         if(location != null || !location.equals(""))
         {
@@ -194,6 +196,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     {
 
         String location = destination.getText().toString();
+        Constants.to = location;
         List<Address> addressList = null;
         if(location != null || !location.equals(""))
         {

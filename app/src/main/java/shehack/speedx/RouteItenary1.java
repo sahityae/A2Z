@@ -7,20 +7,34 @@ import android.os.Bundle;
 import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.vision.text.Text;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import shehack.speedx.function.Constants;
+import shehack.speedx.function.ItenaryAdapter;
+import shehack.speedx.function.ItenaryItem;
 import shehack.speedx.function.SessionDetails;
+import shehack.speedx.function.database.Driver;
+import shehack.speedx.function.database.Variables;
+
+import static shehack.speedx.R.id.itenaryList;
 
 
 public class RouteItenary1 extends AppCompatActivity {
-
+    private List<ItenaryItem> itenaryList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private ItenaryAdapter mAdapter;
     private LinearLayout layout;
     private int maxDriverCount = 8;
     TextView tDriver1, tDriver2, tDriver3, tDriver4, tDriver5;
@@ -31,22 +45,32 @@ public class RouteItenary1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_route_itenary1);
 
-        layout = (LinearLayout)findViewById(R.id.itenaryList);
-        tDriver1 = (TextView)findViewById(R.id.view1);
-        tDriver2 = (TextView)findViewById(R.id.view2);
-        tDriver3 = (TextView)findViewById(R.id.view3);
-        tDriver4 = (TextView)findViewById(R.id.view4);
-        tDriver5 = (TextView)findViewById(R.id.view5);
-
-
-        tNo1 = (TextView)findViewById(R.id.viewNo1);
-        tNo2 = (TextView)findViewById(R.id.viewNo2);
-        tNo3 = (TextView)findViewById(R.id.viewNo3);
-        tNo4 = (TextView)findViewById(R.id.viewNo4);
-        tNo5 = (TextView)findViewById(R.id.viewNo5);
+//        layout = (LinearLayout)findViewById(itenaryList);
+//        tDriver1 = (TextView)findViewById(R.id.view1);
+//        tDriver2 = (TextView)findViewById(R.id.view2);
+//        tDriver3 = (TextView)findViewById(R.id.view3);
+//        tDriver4 = (TextView)findViewById(R.id.view4);
+//        tDriver5 = (TextView)findViewById(R.id.view5);
+//
+//
+//        tNo1 = (TextView)findViewById(R.id.viewNo1);
+//        tNo2 = (TextView)findViewById(R.id.viewNo2);
+//        tNo3 = (TextView)findViewById(R.id.viewNo3);
+//        tNo4 = (TextView)findViewById(R.id.viewNo4);
+//        tNo5 = (TextView)findViewById(R.id.viewNo5);
 
         SessionDetails.instance().chooseDrivers();
+        TextView from = (TextView) findViewById(R.id.textView1);
+        from.setText(Constants.from);
+        TextView to = (TextView) findViewById(R.id.textView3);
+        to.setText(Constants.to);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         addItenaryDetails();
+        mAdapter = new ItenaryAdapter(itenaryList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
     }
 
     private void addItenaryDetails() {
@@ -63,67 +87,18 @@ public class RouteItenary1 extends AppCompatActivity {
             driverDetails.setLayoutParams(dim);
             driverDetails.setText("Driver:" + driverList.get(i)+System.getProperty("line.separator")+"Latlng: "+ changePoints.get(i).toString() );
             layout.addView(driverDetails);*/
+            HashMap<String, Driver> drivers = Variables.instance().getDriverList();
+            Driver driver = drivers.get(driverList.get(i));
 
-            switch(i) {
-                case 0 :
-                    tDriver1.setText("Driver:" + driverList.get(i) + System.getProperty("line.separator") + "Latlng: " + changePoints.get(i).toString());
-                    break;
-
-                case 1 :
-                    tDriver2.setText("Driver:" + driverList.get(i) + System.getProperty("line.separator") + "Latlng: " + changePoints.get(i).toString());
-
-                    break; // optional
-
-                case 2 :
-                    tDriver3.setText("Driver:" + driverList.get(i) + System.getProperty("line.separator") + "Latlng: " + changePoints.get(i).toString());
-                    break; // optional
-
-                case 3 :
-                    tDriver4.setText("Driver:" + driverList.get(i) + System.getProperty("line.separator") + "Latlng: " + changePoints.get(i).toString());
-                    break; // optional
-                case 4 :
-                    tDriver5.setText("Driver:" + driverList.get(i) + System.getProperty("line.separator") + "Latlng: " + changePoints.get(i).toString());
-                    break; // optional
-
-
-            }
+            String driverName = driver.getName();
+            String acencyName = driver.getAgency();
+            String num = driver.getMobile();
+            String address = driver.getAddress();
+            ItenaryItem item = new ItenaryItem(driverName, acencyName, address, num);
+            itenaryList.add(item);
         }
 
-        if(numDrivers < 4)
-        {
-            int NumRedundantViews = 4-numDrivers;
 
-            switch(NumRedundantViews) {
-                case 0 :
-                    // Do nothing
-                    break;
-
-                case 1 :
-                    tDriver5.setVisibility(View.GONE);
-                    tNo5.setVisibility(View.GONE);
-                    break; // optional
-
-                case 2 :
-                    tDriver5.setVisibility(View.GONE);
-                    tNo5.setVisibility(View.GONE);
-
-                    tDriver4.setVisibility(View.GONE);
-                    tNo4.setVisibility(View.GONE);
-                    break; // optional
-
-                case 3 :
-
-                    break; // optional
-                case 4 :
-
-                    break; // optional
-                case 5 :
-
-                    break; // optional
-
-            }
-
-        }
 
 
         /*TextView driverDetails1 = new TextView(this);
