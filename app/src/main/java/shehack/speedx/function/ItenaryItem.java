@@ -10,11 +10,16 @@ public class ItenaryItem {
     private String address;
     private String contact;
 
-    public ItenaryItem(String driverName, String agency, String address, String contact) {
+
+
+    private String tag;
+
+    public ItenaryItem(String tag,String driverName, String agency, String address, String contact) {
         this.driverName = driverName;
         this.agency = agency;
         this.address = address;
         this.contact = contact;
+        this.tag=tag;
     }
 
     public String getDriverName() {
@@ -47,5 +52,12 @@ public class ItenaryItem {
 
     public void setContact(String contact) {
         this.contact = contact;
+    }
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 }

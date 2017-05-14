@@ -18,7 +18,7 @@ public class ItenaryAdapter extends RecyclerView.Adapter<ItenaryAdapter.MyViewHo
     private List<ItenaryItem> itenaryList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView driverName, agencyName, address, num;
+        public TextView driverName, agencyName, address, num, tag;
 
         public MyViewHolder(View view) {
             super(view);
@@ -26,6 +26,7 @@ public class ItenaryAdapter extends RecyclerView.Adapter<ItenaryAdapter.MyViewHo
             agencyName = (TextView) view.findViewById(R.id.agencyName);
             address = (TextView) view.findViewById(R.id.address);
             num = (TextView) view.findViewById(R.id.num);
+            tag = (TextView) view.findViewById(R.id.loc);
         }
     }
 
@@ -49,6 +50,7 @@ public class ItenaryAdapter extends RecyclerView.Adapter<ItenaryAdapter.MyViewHo
         holder.agencyName.setText(item.getAgency());
         holder.address.setText(item.getAddress());
         holder.num.setText(item.getContact());
+        holder.tag.setText(item.getTag());
     }
 
     @Override

@@ -1,5 +1,6 @@
 package shehack.speedx;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -11,6 +12,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -71,6 +73,15 @@ public class RouteItenary1 extends AppCompatActivity {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
+
+        final Button notification = (Button) findViewById(R.id.notification);
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                notification.setText("Stop Notifications");
+
+            }
+        });
     }
 
     private void addItenaryDetails() {
@@ -89,12 +100,12 @@ public class RouteItenary1 extends AppCompatActivity {
             layout.addView(driverDetails);*/
             HashMap<String, Driver> drivers = Variables.instance().getDriverList();
             Driver driver = drivers.get(driverList.get(i));
-
-            String driverName = driver.getName();
-            String acencyName = driver.getAgency();
-            String num = driver.getMobile();
-            String address = driver.getAddress();
-            ItenaryItem item = new ItenaryItem(driverName, acencyName, address, num);
+            String tag ="Driver "+i;
+            String driverName = "Name: " + driver.getName();
+            String acencyName = "Agency: " +driver.getAgency();
+            String num = "Contact: " +driver.getMobile();
+            String address = "Location: " +driver.getAddress();
+            ItenaryItem item = new ItenaryItem(tag, driverName, acencyName, address, num);
             itenaryList.add(item);
         }
 

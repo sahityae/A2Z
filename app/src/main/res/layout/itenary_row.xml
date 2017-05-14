@@ -12,9 +12,16 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/address"
+        android:id="@+id/loc"
         android:textSize="20sp"
         android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/address"
+        android:textSize="20sp"
+        android:layout_below="@id/loc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

@@ -3,6 +3,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@drawable/bg"
     android:id="@+id/itenaryList">
 
     <TextView
@@ -26,10 +27,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="" />
-
+    <TextView
+        android:id="@+id/textView4"
+        android:textSize="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Transit Points"
+        android:textStyle="bold"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="350dp"
         android:orientation="vertical"
         android:id="@+id/linear"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -41,7 +48,16 @@
 
     </LinearLayout>
 
-
+    <Button
+        android:id="@+id/notification"
+        style="?android:textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:textSize="20sp"
+        android:text="@string/notifications"
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
 
 </LinearLayout>
